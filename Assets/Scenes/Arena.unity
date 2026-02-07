@@ -454,7 +454,6 @@ GameObject:
   - component: {fileID: 1100375893}
   - component: {fileID: 1100375892}
   - component: {fileID: 1100375891}
-  - component: {fileID: 1100375895}
   m_Layer: 0
   m_Name: TestZombie
   m_TagString: Untagged
@@ -551,18 +550,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1100375895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1100375890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5e5099de68751445a94b786880eb022, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1273040977
 GameObject:
   m_ObjectHideFlags: 0
@@ -825,8 +812,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1942033528}
   - component: {fileID: 1942033530}
-  - component: {fileID: 1942033532}
-  - component: {fileID: 1942033531}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -875,30 +860,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1942033531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1942033527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a84dd44415f4b4b49a1c755b236cade2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1942033532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1942033527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 466aa75e1b8b7b246969bb96bb4fdfe9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1981972737
 GameObject:
   m_ObjectHideFlags: 0
