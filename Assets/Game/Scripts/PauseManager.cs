@@ -5,21 +5,24 @@ public class PauseManager : IDisposable
 {
     private PlayerInput _inputs;
 
-    public bool IsPause {get; private set;}
+    private ReactiveVariable<bool> _isPause;
+
+    public IReactiveVariable<bool> IsPause => _isPause;
 
     public PauseManager(PlayerInput inputs, bool defaultState = default)
     {
         _inputs = inputs;
         _inputs.Player.Pause.performed += OnPauseButtonPressed;
 
-        IsPause = defaultState;
-        Debug.Log($"Is pause: {IsPause}");
+        _isPause = new(false);
+
+        Debug.Log($"Is pause: {_isPause.Value}");
     }
 
     private void OnPauseButtonPressed(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
-        IsPause = !IsPause;
-        Debug.Log($"Is pause: {IsPause}");
+        _isPause.Value = !_isPause.Value;
+        Debug.Log($"Is pause: {_isPause.Value}");
     }
 
     public void Dispose()
