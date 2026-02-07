@@ -15,6 +15,8 @@ public class PlayerHealthView : MonoBehaviour
 
         _current.Changed += CurrentHealthChanged;
         _max.Changed += MaxHealthChanged;
+
+        UpdateUI();
     }
 
     private void MaxHealthChanged(float obj)

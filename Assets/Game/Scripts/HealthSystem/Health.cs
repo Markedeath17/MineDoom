@@ -17,8 +17,13 @@ public class Health
     public IReactiveVariable<float> Current => _current;
     public IReactiveVariable<float> Max => _max;
 
+    private bool IsAlive => _current.Value > 0;
+
     public void Reduce(float value)
     {
+        if(IsAlive == false)
+            return;
+
          if(value <= 0) 
             throw new ArgumentOutOfRangeException($"Invalid param [{nameof(value)}]: {value}");
 
