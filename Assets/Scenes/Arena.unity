@@ -333,6 +333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pauseView: {fileID: 1876736967}
   _playerHealthView: {fileID: 1519379988}
+  _player: {fileID: 1942033532}
 --- !u!1 &675587629
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,6 +965,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1942033528}
   - component: {fileID: 1942033530}
+  - component: {fileID: 1942033532}
+  - component: {fileID: 1942033531}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1012,6 +1015,34 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1942033531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942033527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2312581c6cedbbc428f28f14ca3c2cc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1942033532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942033527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2e36b5d33a607d48a3ddb2ee0aee35d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movement: {fileID: 1942033531}
+  _camera: {fileID: 1981972741}
+  _speed: 10
+  _startHealth: 100
 --- !u!1 &1981972737
 GameObject:
   m_ObjectHideFlags: 0
@@ -1022,7 +1053,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1981972738}
   - component: {fileID: 1981972740}
-  - component: {fileID: 1981972742}
+  - component: {fileID: 1981972741}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -1097,7 +1128,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &1981972742
+--- !u!114 &1981972741
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1106,9 +1137,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1981972737}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b86b1d55bc2ec6f4db0389514b641d5f, type: 3}
+  m_Script: {fileID: 11500000, guid: 35c99b647ddb595419b8fb7aeb598a8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _body: {fileID: 1942033528}
+  _upViewAngle: -45
+  _downViewAngle: 45
+  _sensitivity: 100
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

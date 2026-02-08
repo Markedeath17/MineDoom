@@ -14,7 +14,7 @@ public class PauseManager : IDisposable
         _inputs = inputs;
         _inputs.Player.Pause.performed += OnPauseButtonPressed;
 
-        _isPause = new(false);
+        _isPause = new(defaultState);
 
         Debug.Log($"Is pause: {_isPause.Value}");
     }
