@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public sealed class Player : MonoBehaviour, IDamageable
+public sealed class Player : MonoBehaviour, IMoveable ,IDamageable
 {
     [Header("References")]
     [SerializeField] private PlayerMovement _movement;
@@ -11,7 +11,6 @@ public sealed class Player : MonoBehaviour, IDamageable
 
     [SerializeField] private float _startHealth;
 
-    private PlayerInput _actions;
     private PauseManager _pauseManager;
     private Health _health;
 
@@ -20,40 +19,23 @@ public sealed class Player : MonoBehaviour, IDamageable
     public IReactiveVariable<float> CurrentHealth => _health.Current;
     public IReactiveVariable<float> MaxHealth => _health.Max;
 
-    public void Initialize(PlayerInput actions, PauseManager pauseManager)
+    public void Initialize(PauseManager pauseManager)
     {
-        _actions = actions;
         _pauseManager = pauseManager;
         _health = new(_startHealth);
 
-        _movement.Initialize(_actions, _speed);
-        _camera.Initialize(_actions);
+        _movement.Initialize(_speed);
+        _camera.Initialize();
     }
 
-    private void Update()
+    void IMoveable.Move(Vector2 input)
     {
-        if(IsPause)
-            return;
-
-        Move();
+        _movement.Move(input);
     }
 
-    private void LateUpdate()
+    void IMoveable.Look(Vector2 input)
     {
-        if(IsPause)
-            return;
-
-        Look();
-    }
-
-    private void Move()
-    {
-        _movement.Move();
-    }
-
-    private void Look()
-    {
-        _camera.Look();
+        _camera.Look(input);
     }
 
     void IDamageable.TakeDamage(float damage)

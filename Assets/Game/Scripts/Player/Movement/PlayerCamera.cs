@@ -9,23 +9,19 @@ public class PlayerCamera : MonoBehaviour
     [SerializeField][Range(0, 90)] private float _downViewAngle;
     [SerializeField][Min(1)] private float _sensitivity;
 
-    private PlayerInput _actions;
-
     private float _xRotation;
 
-    private Vector2 Input => _actions.Player.Look.ReadValue<Vector2>();
-
-    public void Initialize(PlayerInput actions)
+    public void Initialize()
     {
-        _actions = actions;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
-    public void Look()
+    public void Look(Vector2 input)
     {
-        _xRotation -= Input.y * _sensitivity * Time.deltaTime;
+        _xRotation -= input.y * _sensitivity * Time.deltaTime;
         _xRotation = Mathf.Clamp(_xRotation, _upViewAngle, _downViewAngle);
 
         transform.localRotation = Quaternion.Euler(_xRotation, 0, 0);
-        _body.Rotate(Vector2.up * Input.x * _sensitivity * Time.deltaTime);
+        _body.Rotate(Vector2.up * input.x * _sensitivity * Time.deltaTime);
     }
 }
